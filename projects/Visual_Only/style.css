@@ -1,0 +1,286 @@
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+.image-stage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.background-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.black-box {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background-color: black;
+}
+.black-box {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background-color: black;
+}
+
+.box-1  { left: 2%;    width: 1%; }
+.box-2  { left: 4%;    width: 5.5%; }
+.box-3  { left: 10%;   width: 0.7%; }
+.box-4  { left: 12%;   width: 2.8%; }
+.box-5  { left: 15.4%; width: 1.1%; }
+
+.box-6  { left: 22%;   width: 7%; }
+.box-7  { left: 29.6%; width: 0.8%; }
+.box-8  { left: 31%;   width: 2%; }
+.box-9  { left: 34.5%; width: 4.5%; }
+.box-10 { left: 39.5%; width: 0.6%; }
+
+.box-11 { left: 43%;   width: 11%; }
+.box-12 { left: 54.5%; width: 1.2%; }
+.box-13 { left: 57%;   width: 3%; }
+.box-14 { left: 60.6%; width: 0.7%; }
+
+.box-15 { left: 68%;   width: 5%; }
+.box-16 { left: 73.5%; width: 1%; }
+.box-17 { left: 76%;   width: 3.5%; }
+.box-18 { left: 80%;   width: 0.8%; }
+
+.box-19 { left: 85%;   width: 8%; }
+.box-20 { left: 94%;   width: 4%; }
+.black-box {
+  background-image:url("visual only images/visual\ img.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+
+.plane {
+  position: absolute;
+  width: 200px;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  animation: fly 14s linear infinite;
+  transform-origin: center;
+}
+
+.background-image {
+  position: relative;
+  z-index: 0;
+}
+
+.plane {
+  position: absolute;
+  width: 250px;
+  top: 1%;
+  left: -300px;
+  z-index: 1;
+  filter: grayscale(100%);
+  pointer-events: none;
+  animation: fly 18s linear infinite;
+}
+
+
+.plane {
+  position: absolute;
+  width: 250px;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  filter: grayscale(100%);
+  pointer-events: none;
+  animation: fly 10s linear infinite;
+}
+
+@keyframes fly {
+  from {
+    transform: translate(110vw, 55vh)  rotate(+15deg);
+  }
+
+  to {
+    transform: translate(-300px, -10vh) rotate(+15deg);
+  }
+
+}
+.black-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: black;
+  animation: reveal 7s ease-in-out infinite;
+}
+
+@keyframes reveal {
+  0%, 100% {
+    opacity: 1;
+  }
+
+  30%, 55% {
+    opacity: 0;
+  }
+
+  80% {
+    opacity: 1;
+  }
+}
+
+.box-1::before  { animation-delay: -1.2s; }
+.box-2::before  { animation-delay: -4.5s; }
+.box-3::before  { animation-delay: -2.8s; }
+.box-4::before  { animation-delay: -6.1s; }
+.box-5::before  { animation-delay: -0.4s; }
+.box-6::before  { animation-delay: -3.7s; }
+.box-7::before  { animation-delay: -5.3s; }
+.box-8::before  { animation-delay: -1.9s; }
+.box-9::before  { animation-delay: -4.1s; }
+.box-10::before { animation-delay: -0.8s; }
+.box-11::before { animation-delay: -5.8s; }
+.box-12::before { animation-delay: -2.3s; }
+.box-13::before { animation-delay: -6.5s; }
+.box-14::before { animation-delay: -3.2s; }
+.box-15::before { animation-delay: -1.5s; }
+.box-16::before { animation-delay: -4.8s; }
+.box-17::before { animation-delay: -0.2s; }
+.box-18::before { animation-delay: -5.5s; }
+.box-19::before { animation-delay: -2.6s; }
+.box-20::before { animation-delay: -3.9s; }
+
+
+.background-image {
+  position: relative;
+  z-index: 0;
+}
+
+.plane {
+  z-index: 1;
+}
+
+.black-box {
+  z-index: 2;
+}
+
+.black-box {
+  overflow: hidden;
+}
+
+.black-box::after {
+  content: "";
+  position: absolute;
+  width: 350px;
+  height: 250px;
+  left: calc(-1 * var(--start));
+  top: 0;
+  background-image: url("visual only images/plane2.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  animation: fly-second 8s linear infinite;
+}
+
+.black-box::before {
+  z-index: 1;
+}
+
+@keyframes fly-second {
+  from {
+    transform: translate(-400px, -250px) scale(1)rotate(+15deg);
+  }
+
+  to {
+    transform: translate(110vw, 85vh) scale(1.8)rotate(+15deg);
+  }
+}
+
+.black-box {
+  overflow: hidden;
+}
+
+.black-box::after {
+  content: "";
+  position: absolute;
+  width: 2000px;
+  height: 1400px;
+  left: calc(-1 * var(--start));
+  top: 0;
+  background-image: url("visual only images/plane.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  animation: fly-second 8s linear infinite;
+}
+
+.black-box::before {
+  z-index: 1;
+}
+
+@keyframes fly-second {
+  from {
+    transform: translate(-400px, -250px) scaleX(-1) scale(1)rotate(-15deg);
+  }
+
+  to {
+    transform: translate(110vw, 85vh) scaleX(-1) scale(1.8)rotate(-15deg);
+  }
+
+}
+
+.box-1  { --start: 2vw; }
+.box-2  { --start: 4vw; }
+.box-3  { --start: 10vw; }
+.box-4  { --start: 12vw; }
+.box-5  { --start: 15.4vw; }
+.box-6  { --start: 22vw; }
+.box-7  { --start: 29.6vw; }
+.box-8  { --start: 31vw; }
+.box-9  { --start: 34.5vw; }
+.box-10 { --start: 39.5vw; }
+.box-11 { --start: 43vw; }
+.box-12 { --start: 54.5vw; }
+.box-13 { --start: 57vw; }
+.box-14 { --start: 60.6vw; }
+.box-15 { --start: 68vw; }
+.box-16 { --start: 73.5vw; }
+.box-17 { --start: 76vw; }
+.box-18 { --start: 80vw; }
+.box-19 { --start: 85vw; }
+.box-20 { --start: 94vw; }
+#start-screen {
+  position: fixed;
+  inset: 0;
+  background-color: black;
+  z-index: 100;
+  transition: opacity 1.5s ease;
+}
+
+body.started #start-screen {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.plane,
+.black-box::before,
+.black-box::after {
+  animation-play-state: paused;
+}
+
+body.started .plane,
+body.started .black-box::after {
+  animation-play-state: running;
+}
+
+body.started .black-box::before {
+  animation-play-state: running;
+}
+.image-stage:has(.box-11:hover) .black-box::before {
+  animation: none !important;
+  opacity: 0 !important;
+}
