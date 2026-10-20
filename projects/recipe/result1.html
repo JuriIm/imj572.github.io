@@ -1,14 +1,102 @@
-<H1 style="color: blanchedalmond;text-align: center;font-family: Verdana, Geneva, Tahoma, sans-serif;">Result 1</H1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Result 1</title>
 
-<body style="background-color: darkred;">
-   <p style="text-align: center;"> <img src="result images/result1-final.jpeg" width="400"> </p> 
-   <p style="text-align: center;">
-<img src="result images/result1-2.jpeg" width="120">
-<img src="result images/result1-3.jpeg" width="120">
-<img src="result images/result1-4.jpeg" width="120">
-<img src="result images/result1-5.jpeg" width="120">
-   </p>
+  <style>
+    body {
+      margin: 0;
+      padding: 60px 25px;
+      background-color: darkred;
+      color: blanchedalmond;
+      text-align: center;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
 
+    h1 {
+      margin: 0 0 35px;
+      font-size: 40px;
+    }
 
+    .final-image {
+      display: block;
+      width: 400px;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
+    }
 
+    h2 {
+      margin: 45px 0 25px;
+      font-size: 22px;
+      font-weight: normal;
+    }
+
+    .process {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .process img {
+      width: 120px;
+      max-width: 100%;
+      height: auto;
+      align-self: flex-start;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 45px;
+      color: blanchedalmond;
+      text-underline-offset: 5px;
+    }
+
+    a:hover {
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Result 1</h1>
+
+  <img
+    class="final-image"
+    src="result images/result1-final.jpeg"
+    alt="The first participant's completed drawing"
+  >
+
+  <h2>The Process</h2>
+
+  <div class="process">
+    <img
+      src="result images/result1-2.jpeg"
+      alt="Drawing process, first image"
+    >
+    <img
+      src="result images/result1-3.jpeg"
+      alt="Drawing process, second image"
+    >
+    <img
+      src="result images/result1-4.jpeg"
+      alt="Drawing process, third image"
+    >
+    <img
+      src="result images/result1-5.jpeg"
+      alt="Drawing process, fourth image"
+    >
+  </div>
+
+  
+  <nav>
+  <a href="recipe1.html">← Back to Recipe</a>
+  <a href="Result2.html">View Result 2 →</a>
+  <a href="Comparison.html">Compare the Results →</a>
+</nav>
 </body>
+</html>

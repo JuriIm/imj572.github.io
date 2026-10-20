@@ -1,22 +1,124 @@
-<h1 style="font-family: Verdana, Geneva, Tahoma, sans-serif; 
-text-align: center;"></h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Comparison</title>
 
+  <style>
+    body {
+      margin: 0;
+      padding: 60px 25px;
+      background-color: black;
+      color: white;
+      text-align: center;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
 
+    main {
+      max-width: 850px;
+      margin: 0 auto;
+    }
 
-<body style="background-color: black; text-align: center;">
-<p style="color: pink;font-size:x-large;"> <img src="result images/Marilyn_Monroe.jpg"> <br><br>Marilyn Monroe</p>
-<p style="color: pink;"> <img src="result images/result1-final.HEIC" width="200" > <img src="result images/result2-fianl.HEIC" width="200"></p>
+    h1 {
+      margin: 0 0 35px;
+      color: pink;
+      font-size: 40px;
+    }
 
+    .portrait {
+      width: 250px;
+      max-width: 100%;
+      height: auto;
+    }
 
-  <h2>What I Noticed</h2>
-  <p style="color: white;">
-    I chose Marilyn Monroe because she has recognizable features.<br>
-     I wanted to see how two people would draw the same person using the same instructions.<br>
-    Their drawings turned out differently, <br>
-     showed me how each person
-    interprets the same recipe in their own way.</p>
-  
+    .name {
+      margin: 15px 0 40px;
+      color: pink;
+      font-size: 22px;
+    }
 
+    .results {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-bottom: 50px;
+    }
 
+    figure {
+      margin: 0;
+      width: 220px;
+      max-width: 100%;
+    }
 
+    figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    figcaption {
+      margin-top: 15px;
+      color: pink;
+      font-size: 15px;
+    }
+
+    h2 {
+      color: pink;
+      font-size: 24px;
+    }
+
+    .reflection {
+      max-width: 620px;
+      margin: 0 auto;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <h1>Same Recipe, Different Faces</h1>
+
+    <img
+      class="portrait"
+      src="result images/Marilyn_Monroe.jpg"
+      alt="Marilyn Monroe, the reference for both drawings"
+    >
+    <p class="name">Marilyn Monroe</p>
+
+    <div class="results">
+      <figure>
+        <img
+          src="result images/result1-final.jpeg"
+          alt="The first participant's drawing of Marilyn Monroe"
+        >
+        <figcaption>Result 1</figcaption>
+      </figure>
+
+      <figure>
+        <img
+          src="result images/result2-fianl.jpeg"
+          alt="The second participant's drawing of Marilyn Monroe"
+        >
+        <figcaption>Result 2</figcaption>
+      </figure>
+    </div>
+
+    <h2>What I Noticed</h2>
+
+    <p class="reflection">
+      I chose Marilyn Monroe because she has recognizable features.
+      I wanted to see how two people would draw the same person
+      using the same instructions. Their drawings turned out
+      differently, showing how each person interprets the same
+      recipe in their own way.
+    </p>
+    <nav>
+  <a href="recipe1.html">← Back to Recipe</a>
+  <a href="../../index.html">Back to Home →</a>
+</nav>
+  </main>
 </body>
+</html>
