@@ -1,0 +1,350 @@
+/* Base */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #F1F4F6;
+  color: #172A3A;
+  font-family:
+    'Gill Sans',
+    'Gill Sans MT',
+    Calibri,
+    'Trebuchet MS',
+    sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+/* Announcement */
+
+.announcement {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 8px 16px;
+  background:pink;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Header */
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  min-height: 90px;
+  padding: 5px 24px 40px;
+}
+
+.header-tools {
+  display: flex;
+  align-items: center;
+  gap: 44px;
+}
+
+.header-tools button {
+  font-size: 25px;
+}
+
+.logo {
+  font-size: 30px;
+  line-height: 0.85;
+  letter-spacing: -2px;
+  text-align: center;
+  color: hotpink;
+}
+
+.account-tools {
+  justify-content: flex-end;
+}
+
+.account-tools button:last-child {
+  font-size: 13px;
+}
+
+/* Heading and categories */
+
+.collection-heading {
+  padding: 22px 18px 0;
+}
+
+.collection-heading h1 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 40px;
+  margin: 30px 0 0;
+}
+
+.categories a {
+  padding: 0 0 14px;
+  border-block-end: 1px solid transparent;
+  font-size: 17px;
+}
+
+.categories .selected {
+  color: #D94F30;
+  border-block-end-color: #D94F30;
+}
+
+.categories a:hover {
+  color: #D94F30;
+}
+
+/* Filter */
+
+.filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 68px;
+  padding: 18px;
+}
+
+.filter-bar > button {
+  font-size: 14px;
+}
+
+.view-tools {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.view-tools button {
+  padding: 4px 0;
+  border-block-end: 1px solid transparent;
+  font-size: 23px;
+  line-height: 1;
+}
+
+.view-tools .active-view {
+  border-block-end-color: currentColor;
+}
+
+.collection-heading h1 {
+  color: #D94F30;
+}
+
+
+.photo-section {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: auto auto auto auto;
+  column-gap: 8px;
+  row-gap: 0;
+  padding: 0 5px;
+  margin-block-end: 8px;
+}
+
+/* Small photographs share the section's four rows */
+
+.small-photos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: subgrid;
+  grid-row: 1 / 5;
+  column-gap: 8px;
+  row-gap: 0;
+  min-width: 0;
+}
+
+/* Place the small-photo group according to the HTML order */
+
+.small-photos:first-child {
+  grid-column: 1;
+}
+
+.small-photos:last-child {
+  grid-column: 2;
+}
+
+/* Each card uses one photograph row and one caption row */
+
+.product {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 2;
+  min-width: 0;
+}
+
+.product > a {
+  display: block;
+  min-width: 0;
+}
+
+.product img {
+  width: 100%;
+  aspect-ratio: 5 / 7;
+  object-fit: cover;
+  background: #E2E7EB;
+}
+
+.product-info {
+  min-height: 75px;
+  padding: 15px 8px 18px;
+}
+
+.product-info h2,
+.product-info p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.5;
+}
+
+/*
+  Large photograph occupies rows 1–3.
+  The final caption row is excluded.
+*/
+
+.campaign {
+  display: grid;
+  grid-row: 1 / 4;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  background: #E2E7EB;
+}
+
+.campaign:first-child {
+  grid-column: 1;
+}
+
+.campaign:last-child {
+  grid-column: 2;
+}
+
+.campaign img {
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  object-fit: cover;
+  contain: size;
+  background: #E2E7EB;
+}
+
+/* Source credit */
+
+footer {
+  padding: 32px 18px;
+  font-size: 12px;
+}
+
+footer a {
+  text-decoration: underline;
+}
+
+/* Smaller screens */
+
+@media (max-width: 700px) {
+  .header {
+    min-height: 100px;
+    padding: 20px 16px;
+  }
+
+  .header-tools {
+    gap: 16px;
+  }
+
+  .logo {
+    font-size: 24px;
+  }
+
+  .account-tools button:first-child {
+    display: none;
+  }
+
+  .categories {
+    gap: 12px 22px;
+  }
+
+  .categories a {
+    font-size: 14px;
+  }
+
+  .photo-section {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    row-gap: 8px;
+  }
+
+  .small-photos:first-child,
+  .small-photos:last-child {
+    grid-column: auto;
+    grid-row: auto;
+    grid-template-rows: auto;
+  }
+
+  .product {
+    grid-template-rows: auto auto;
+    grid-row: auto;
+  }
+
+  .campaign:first-child,
+  .campaign:last-child {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .campaign img {
+    contain: none;
+    height: auto;
+    aspect-ratio: 4 / 5;
+  }
+}
+@media (min-width: 701px) {
+  .campaign.campaign-captioned {
+    grid-row: 1 / 5;
+    grid-template-rows: subgrid;
+    row-gap: 0;
+  }
+
+  .campaign-captioned > .campaign-image {
+    display: grid;
+    grid-row: 1 / 4;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .campaign-captioned > .campaign-image > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    contain: size;
+  }
+
+  .campaign-captioned > .product-info {
+    grid-row: 4 / 5;
+  }
+}

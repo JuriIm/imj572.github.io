@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NYC Archives — Recent Walks</title>
+
+  <link rel="stylesheet" href="Rcreate.css">
+</head>
+
+<body>
+  <div class="announcement">
+    Small observations from everyday walks in New York. →
+  </div>
+
+  <header class="header">
+    <div class="header-tools">
+      <button aria-label="Open menu">☰</button>
+      <button aria-label="Search">⌕</button>
+    </div>
+
+    <a class="logo" href="#">NYC<br>ARCHIVES</a>
+
+    <div class="header-tools account-tools">
+      <button aria-label="About this archive">About</button>
+      <button aria-label="Favorites">♡</button>
+      <button aria-label="View archive">Archive</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="collection-heading">
+      <h1>I ♥ NY</h1>
+
+      <nav class="categories" aria-label="Archive categories">
+        <a class="selected" href="#">Favorites</a>
+        <a href="#">SoHo</a>
+        <a href="#">Brooklyn</a>
+        <a href="#">East Village</a>
+        <a href="#">Midtown</a>
+        <a href="#">Financial District</a>
+        <a href="#">Chelsea</a>
+        <a href="#">Upper East Side</a>
+      </nav>
+    </section>
+
+    <div class="filter-bar">
+      <button>Explore the Archive ⌄</button>
+
+      <div class="view-tools">
+        <button aria-label="Single column view">□</button>
+        <button class="active-view" aria-label="Two column view">◫</button>
+        <button aria-label="Grid view">▦</button>
+      </div>
+    </div>
+
+    <!-- First section -->
+    <section class="photo-section" aria-label="Favorite New York photographs">
+
+      <div class="small-photos">
+
+        <article class="product">
+          <a href="#">
+            <img
+              src="images/W.B.jpeg"
+              alt="A café in Williamsburg that reminded me of cafés in Korea"
+            >
+          </a>
+
+          <div class="product-info">
+            <h2>A Café That Reminded Me of Korea</h2>
+            <p>Williamsburg, Brooklyn</p>
+          </div>
+        </article>
+
+        <article class="product">
+          <a href="#">
+            <img
+              src="images/soho flower.jpg"
+              alt="A flower shop on a street in SoHo"
+            >
+          </a>
+
+          <div class="product-info">
+            <h2>A Flower Shop on a Street in SoHo</h2>
+            <p>SoHo, Manhattan</p>
+          </div>
+        </article>
+
+        <article class="product">
+          <a href="#">
+            <img
+              src="images/MoMa.JPG"
+              alt="A photograph taken at MoMA"
+            >
+          </a>
+
+          <div class="product-info">
+            <h2>MoMA</h2>
+            <p>Midtown, Manhattan</p>
+          </div>
+        </article>
+
+        <article class="product">
+          <a href="#">
+            <img
+              src="images/East.jpeg"
+              alt="One of my favorite brunch cafés in the East Village"
+            >
+          </a>
+
+          <div class="product-info">
+            <h2>One of My Favorite Brunch Cafés</h2>
+            <p>East Village, Manhattan</p>
+          </div>
+        </article>
+
+      </div>
+
+      <article class="campaign campaign-captioned">
+        <a class="campaign-image" href="#">
+          <img
+            src="images/SoHo.jpeg"
+            alt="A street in SoHo during winter"
+          >
+        </a>
+
+        <div class="product-info">
+          <h2>A Winter Street in SoHo</h2>
+          <p>SoHo, Manhattan</p>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- Second section -->
+    <section class="photo-section" aria-label="More photographs of New York">
+
+      <a
+        class="campaign"
+        href="#"
+        aria-label="Explore photographs of Williamsburg"
+      >
+        <img
+          src="images/Williamsburg.JPG"
+          alt="A view of Williamsburg, Brooklyn"
+        >
+      </a>
+
+      <div class="small-photos">
+
+        <article class="product">
+          <a href="#">
+            <img
+              src="images/soho.rest.jpeg"
+              alt="A parfait I had in SoHo"
+            >
+          </a>
+
+          <div class="product-info">
+            <h2>A Parfait I Had in SoHo</h2>
+            <p>SoHo, Manhattan</p>
+          </div>
+        </article>
+
+        <article class="product">
+          <a href="#">
+            <img
+              src="images/finan.jpg"
+              alt="Buildings on the Upper East Side"
+            >
+          </a>
+
+          <div class="product-info">
+            <h2>A Quiet Afternoon</h2>
+            <p>Upper East Side, Manhattan</p>
+          </div>
+        </article>
+
+        <article class="product">
+          <a href="#">
+            <img
+              src="images/Bryant.jpeg"
+              alt="Hot chocolate with marshmallows on a cold winter day"
+            >
+          </a>
+
+          <div class="product-info">
+            <h2>Marshmallow Hot Chocolate in the Middle of Winter</h2>
+            <p>Midtown, Manhattan</p>
+          </div>
+        </article>
+
+        <article class="product">
+          <a href="#">
+            <img
+              src="images/WTC.JPG"
+              alt="A view of the World Trade Center"
+            >
+          </a>
+
+          <div class="product-info">
+            <h2>A View of the World Trade Center</h2>
+            <p>Financial District, Manhattan</p>
+          </div>
+        </article>
+
+      </div>
+
+    </section>
+  </main>
+
+  <footer>
+    Layout study inspired by
+    <a
+      href="https://www.stories.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      &amp; Other Stories
+    </a>.
+  </footer>
+</body>
+</html>

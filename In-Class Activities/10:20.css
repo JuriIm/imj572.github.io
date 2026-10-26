@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.item {
+  width: 200px;
+  height: 200px;
+  background-color: sandybrown;
+}
+body{
+    background-color: lightgreen;
+}
