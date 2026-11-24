@@ -94,6 +94,12 @@ h2 {
 .Recreate_Website{
   background-color: salmon;
 }
+.clock {
+  background-color: lightblue;
+}
+.Album-Cover{
+  background-color: plum ;
+}
 
 @media (max-width: 600px) {
   body {
