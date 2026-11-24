@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A Year in Snapshots | Frequencies</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #000;
+      color: #fff;
+      font-family: Helvetica, Arial, sans-serif;
+    }
+
+    .page {
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 20px clamp(20px, 5vw, 76px) 64px;
+    }
+
+    h1, h2, p {
+      margin: 0;
+    }
+
+    button, a {
+      color: inherit;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    :focus-visible {
+      outline: 3px solid #75dcff;
+      outline-offset: 4px;
+    }
+
+    /* Header */
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .back {
+      font: 14px Menlo, Consolas, monospace;
+      text-decoration: none;
+    }
+
+    .back:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .pin {
+      display: block;
+      width: clamp(52px, 6vw, 80px);
+      height: auto;
+    }
+
+    h1 {
+      margin: 22px 0 14px;
+      font-size: clamp(46px, 7.6vw, 112px);
+      line-height: .98;
+      letter-spacing: -.065em;
+    }
+
+    .intro {
+      max-width: 62ch;
+      color: #ccc;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    /* Featured song */
+    .featured {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 26px 0 42px;
+    }
+
+    .featured-photo {
+      position: relative;
+      width: 76px;
+      height: 76px;
+      flex-shrink: 0;
+    }
+
+    .featured-photo img,
+    .photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .featured h2 {
+      margin-bottom: 4px;
+      font-size: 26px;
+      letter-spacing: -.04em;
+    }
+
+    .details {
+      color: #ccc;
+      font: 14px/1.45 Menlo, Consolas, monospace;
+    }
+
+    /* Four seasonal blocks */
+    .seasons {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: clamp(18px, 2vw, 32px);
+    }
+
+    .spring { --neon: #FF8ADE; }
+    .summer { --neon: #66FFFF; }
+    .fall   { --neon: #ff922f; }
+    .winter { --neon: #fff; }
+
+    .season-art {
+      position: relative;
+      display: grid;
+      place-items: center;
+      aspect-ratio: 1;
+      overflow: hidden;
+    }
+
+    /* Repeated words form the square behind each photo. */
+    .pattern {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      color: var(--neon);
+      font-family: Menlo, Consolas, monospace;
+      font-size: clamp(13px, 1.1vw, 18px);
+      font-weight: 600;
+      line-height: 1.08;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .pattern span {
+      display: block;
+      white-space: nowrap;
+    }
+
+    .pattern span:nth-child(3n + 2) {
+      transform: translateX(-1.7ch);
+    }
+
+    .pattern span:nth-child(3n) {
+      transform: translateX(-3.4ch);
+    }
+
+    .photo {
+      position: relative;
+      width: 60%;
+      aspect-ratio: 1;
+      background: #000;
+      box-shadow: 0 0 0 4px #000;
+    }
+
+    .season-card h2 {
+      margin: 14px 0 4px;
+      color: var(--neon);
+      font-size: clamp(24px, 2.2vw, 36px);
+      line-height: 1.05;
+      letter-spacing: -.045em;
+    }
+
+    /* Play buttons and Spotify player */
+    .play {
+      position: absolute;
+      right: 5px;
+      bottom: 5px;
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      padding: 0;
+      border: 1px solid #fff;
+      border-radius: 50%;
+      background: #090909ed;
+      color: #fff;
+    }
+
+    .play::before {
+      content: "";
+      margin-left: 3px;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-left: 10px solid currentColor;
+    }
+
+    .play:hover {
+      background: var(--neon, #fff);
+      color: #000;
+    }
+
+    .featured .play {
+      width: 30px;
+      height: 30px;
+    }
+
+    dialog {
+      width: min(92%, 500px);
+      padding: 20px;
+      border: 1px solid #777;
+      background: #151515;
+      color: #fff;
+    }
+
+    dialog::backdrop {
+      background: #000c;
+    }
+
+    .player-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .close {
+      padding: 8px 12px;
+      border: 1px solid #888;
+      background: transparent;
+    }
+
+    #player-content iframe {
+      display: block;
+      width: 100%;
+      height: 152px;
+      margin-bottom: 14px;
+      border: 0;
+    }
+
+    @media (max-width: 900px) {
+      .seasons {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        row-gap: 32px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .seasons {
+        grid-template-columns: 1fr;
+      }
+
+      .featured {
+        margin-bottom: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header>
+      <div class="top-bar">
+        <a class="back" href="../index.html">← Back to Frequencies</a>
+        <img class="pin" src="Images/juri-pin.png" alt="Juri Im">
+      </div>
+
+      <h1>A Year in Snapshots</h1>
+
+      <p class="intro">
+        I chose a song I play on repeat in each season and paired it with a
+        photo from my camera roll. The photos remind me what those days
+        looked like, and the songs bring back how they felt. Ed Sheeran’s
+        “Photograph” is my favorite song, and it ties those four memories together.
+      </p>
+    </header>
+
+    <main>
+      <section class="featured" aria-labelledby="photograph-title">
+        <div class="featured-photo">
+          <img src="Images/Photograph.jpg" alt="A snapshot from my camera roll">
+          <button class="play" type="button"
+            aria-label="Play Photograph" aria-haspopup="dialog"
+            data-track="1HNkqx9Ahdgi1Ixy2xkKkL"></button>
+        </div>
+
+        <div>
+          <h2 id="photograph-title">Photograph</h2>
+          <p class="details">Ed Sheeran · 2014</p>
+        </div>
+      </section>
+
+      <section class="seasons" aria-label="Songs for the four seasons">
+        <article class="season-card spring">
+          <div class="season-art">
+            <div class="pattern" data-word="SPRING" aria-hidden="true"></div>
+            <div class="photo">
+              <img src="Images/Spring.jpeg" alt="Spring snapshot from my camera roll">
+              <button class="play" type="button"
+                aria-label="Play Sunflower" aria-haspopup="dialog"
+                data-track="3KkXRkHbMCARz0aVfEt68P"></button>
+            </div>
+          </div>
+          <h2>Sunflower</h2>
+          <p class="details">Post Malone &amp; Swae Lee · 2018</p>
+        </article>
+
+        <article class="season-card summer">
+          <div class="season-art">
+            <div class="pattern" data-word="SUMMER" aria-hidden="true"></div>
+            <div class="photo">
+              <img src="Images/Summer.jpeg" alt="Summer snapshot from my camera roll">
+              <button class="play" type="button"
+                aria-label="Play Cruel Summer" aria-haspopup="dialog"
+                data-track="1BxfuPKGuaTgP7aM0Bbdwr"></button>
+            </div>
+          </div>
+          <h2>Cruel Summer</h2>
+          <p class="details">Taylor Swift · 2019</p>
+        </article>
+
+        <article class="season-card fall">
+          <div class="season-art">
+            <div class="pattern" data-word="FALL" aria-hidden="true"></div>
+            <div class="photo">
+              <img src="Images/Fall.JPG" alt="Fall snapshot from my camera roll">
+              <button class="play" type="button"
+                aria-label="Play Malibu Nights" aria-haspopup="dialog"
+                data-track="0Eqg0CQ7bK3RQIMPw1A7pl"></button>
+            </div>
+          </div>
+          <h2>Malibu Nights</h2>
+          <p class="details">LANY · 2018</p>
+        </article>
+
+        <article class="season-card winter">
+          <div class="season-art">
+            <div class="pattern" data-word="WINTER" aria-hidden="true"></div>
+            <div class="photo">
+              <img src="Images/Winter.jpeg" alt="Winter snapshot from my camera roll">
+              <button class="play" type="button"
+                aria-label="Play Santa Tell Me" aria-haspopup="dialog"
+                data-track="0lizgQ7Qw35od7CYaoMBZb"></button>
+            </div>
+          </div>
+          <h2>Santa Tell Me</h2>
+          <p class="details">Ariana Grande · 2014</p>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="player" aria-labelledby="player-title">
+    <div class="player-header">
+      <h2 id="player-title"></h2>
+      <form method="dialog">
+        <button class="close" type="submit" autofocus>Close</button>
+      </form>
+    </div>
+    <div id="player-content"></div>
+    <a id="spotify-link" target="_blank" rel="noopener">Open in Spotify</a>
+  </dialog>
+
+  <script>
+    // Fill each square with its season name.
+    document.querySelectorAll(".pattern").forEach((pattern) => {
+      const word = pattern.dataset.word;
+
+      for (let row = 0; row < 40; row++) {
+        const line = document.createElement("span");
+        line.textContent = (word + " ").repeat(20);
+        pattern.append(line);
+      }
+    });
+
+    // Open the selected song in a Spotify player.
+    const player = document.querySelector("#player");
+    const playerTitle = document.querySelector("#player-title");
+    const playerContent = document.querySelector("#player-content");
+    const spotifyLink = document.querySelector("#spotify-link");
+
+    document.querySelectorAll(".play").forEach((button) => {
+      button.addEventListener("click", () => {
+        const card = button.closest(".featured, .season-card");
+        const title = card.querySelector("h2").textContent;
+        const track = button.dataset.track;
+
+        const iframe = document.createElement("iframe");
+        iframe.title = `Spotify player for ${title}`;
+        iframe.src = `https://open.spotify.com/embed/track/${track}`;
+        iframe.allow = "autoplay; encrypted-media; fullscreen; picture-in-picture";
+
+        playerTitle.textContent = title;
+        spotifyLink.href = `https://open.spotify.com/track/${track}`;
+        playerContent.replaceChildren(iframe);
+        player.showModal();
+      });
+    });
+
+    player.addEventListener("close", () => {
+      playerContent.replaceChildren();
+    });
+  </script>
+</body>
+</html>
